@@ -109,7 +109,7 @@ nav a {
   transition: background 0.3s;
 }
 
-nav a:hover {
+nav a:hover { 
   background-color: #0078d7;
 }
 
@@ -153,21 +153,21 @@ h2 {
   gap: 20px;
   justify-content: center;
 }
-
 .card {
-  background-color: #0078d7;
-  color: white;
+  background-color: #ffffff !important;
+  color: #0078d7 !important; /* Texte bleu sur fond blanc */
   padding: 25px;
   border-radius: 10px;
   flex: 1;
   text-align: center;
   min-width: 220px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-  transition: background 0.3s;
+  transition: all 0.3s;
 }
 
 .card:hover {
-  background-color: #005bb5;
+  background-color: #0078d7 !important;
+  color: #ffffff !important; /* Inverse les couleurs au survol */
 }
 
 footer {
@@ -372,7 +372,8 @@ footer {
 #newsletter button:hover {
   background: #004080;
 }
-ground-clip: text;
+-webkit-background-clip: text; /* Pour Chrome, Safari et navigateurs basés sur Chromium */
+background-clip: text;         /* Propriété standard */
   -webkit-text-fill-color: transparent;
   animation: gradientMove 5s infinite;
 }
@@ -464,6 +465,20 @@ ground-clip: text;
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
   transition: transform 0.3s ease;
 }
+/* Assure l'affichage et le redimensionnement correct sur smartphone */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Ajuste le logo en arrière-plan spécifiquement pour écran mobile */
+@media (max-width: 768px) {
+  .devis-container, body.page-devis {
+    background-size: 80% auto !important;
+    background-position: center !important;
+  }
+}
 
 .gallery-grid img:hover {
   transform: scale(1.05);
@@ -494,6 +509,674 @@ ground-clip: text;
 
 #formulaire button:hover {
   background: #004080;
+}
+.devis-container {
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 25px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  font-family: Arial, sans-serif;
+}
+
+.devis-container h2 {
+  color: #004080;
+  border-bottom: 2px solid #004080;
+  padding-bottom: 5px;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button {
+  background-color: #004080;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0066cc;
+}
+.devis-container {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 30px;
+  background: linear-gradient(135deg, #f9f9f9, #e9f0ff);
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+.devis-container h2 {
+  color: #003366;
+  border-bottom: 3px solid #003366;
+  padding-bottom: 8px;
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+.form-row {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.form-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #333;
+}
+
+input, textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 15px;
+  transition: border-color 0.3s;
+}
+
+input:focus, textarea:focus {
+  border-color: #003366;
+  outline: none;
+}
+
+button {
+  background-color: #003366;
+  color: white;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #0055aa;
+}
+
+.form-actions {
+  text-align: center;
+  margin-top: 20px;
+}
+.galerie-travaux {
+  text-align: center;
+  margin: 50px auto;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+.galerie-travaux h2 {
+  color: #003366;
+  border-bottom: 3px solid #003366;
+  display: inline-block;
+  padding-bottom: 5px;
+  margin-bottom: 30px;
+}
+
+.galerie {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  justify-items: center;
+}
+
+.galerie img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.galerie img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+}
+.btn-devis {
+  display: inline-block;
+  background-color: #003366;
+  color: white;
+  padding: 12px 25px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.btn-devis:hover {
+  background-color: #0055aa;
+}
+/* Dans style.css */
+
+body {
+  /* ... vos autres styles de body existants ... */
+
+  /* Configuration du fond */
+  background-image: url('logo.jpeg'); /* MODIFIER : Utilisez le nom EXACT de votre fichier */
+  background-size: cover;          /* Le logo couvre tout l'écran */
+  background-repeat: no-repeat;    /* Ne se répète pas */
+  background-position: center;     /* Centré horizontalement et verticalement */
+  background-attachment: fixed;    /* Le fond ne défile pas avec la page */
+
+  /* Pour garder le texte lisible, on peut ajouter un léger voile blanc sur le body */
+  background-color: rgba(255, 255, 255, 0.9); /* Fond blanc 90% opaque */
+  background-blend-mode: overlay;               /* Mélange le fond et le voile */
+}
+
+/* S'assurer que le formulaire lui-même est opaque pour la lisibilité */
+.devis-container {
+  background-color: rgba(255, 255, 255, 0.95); /* Fond blanc presque opaque du formulaire */
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Légère ombre pour le faire ressortir */
+}
+/* Alignement et fond global */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f7f6;
+  margin: 0;
+  padding: 20px;
+}
+
+.top-nav {
+  max-width: 600px;
+  margin: 0 auto 15px auto;
+}
+
+.btn-back {
+  color: #0056b3;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* Carte du formulaire avec Filigrane */
+.devis-container {
+  max-width: 550px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden; /* Empêche le logo de dépasser des bords arrondis */
+}
+
+/* Filigrane du logo Novaclim */
+.devis-container::before {
+  content: "";
+  position: absolute;
+  top: 0; 
+  left: 0; 
+  width: 100%; 
+  height: 100%;
+  background-image: url('logo.jpeg'); /* Nom exact de votre fichier image */
+  background-size: 70%;               /* Taille du logo */
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.08;                      /* Transparence très légère (8%) */
+  pointer-events: none;               /* N'interfère pas avec les clics */
+  z-index: 0;
+}
+
+/* S'assurer que le texte et les champs soient bien au-dessus du filigrane */
+.form-header, .form-group, .btn-submit, .confirmation-message {
+  position: relative;
+  z-index: 1;
+}
+
+/* Structure des éléments internes */
+.form-header {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.form-header h2 {
+  color: #0056b3;
+  margin-bottom: 8px;
+}
+
+.form-group {
+  margin-bottom: 18px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: bold;
+  color: #333;
+}
+
+.form-group input, 
+.form-group textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+.btn-submit {
+  width: 100%;
+  background-color: #0056b3;
+  color: white;
+  border: none;
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.btn-submit:hover {
+  background-color: #003d80;
+}
+
+.confirmation-message {
+  display: none;
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #e6f4ea;
+  color: #1e7e34;
+  border-radius: 6px;
+  text-align: center;
+}
+/* --- RESET & VARIABLES GLOBALES --- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #eef2f5;
+  color: #333333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+/* --- CARTE DU FORMULAIRE --- */
+.devis-card {
+  width: 100%;
+  max-width: 580px;
+  background-color: #ffffff;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  position: relative;
+  overflow: hidden; /* Empêche le filigrane de dépasser */
+}
+
+/* --- LOGO EN ARRIÈRE-PLAN (FILIGRANE) --- */
+.devis-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('logo.jpeg'); /* Assurez-vous que l'image s'appelle exactement logo.jpeg */
+  background-size: 60%;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.07; /* Transparence subtile (7%) */
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Placement au-dessus du filigrane */
+.form-header,
+form,
+.confirmation-box {
+  position: relative;
+  z-index: 1;
+}
+
+/* --- EN-TÊTE --- */
+.form-header {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.badge {
+  display: inline-block;
+  background-color: #e6f0fa;
+  color: #0056b3;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border-radius: 20px;
+  margin-bottom: 10px;
+  letter-spacing: 0.5px;
+}
+
+.form-header h2 {
+  color: #1a2b3c;
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.form-header p {
+  color: #666;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* --- DISPOSITION DES CHAMPS --- */
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-row {
+  display: flex;
+  gap: 15px;
+}
+
+.form-row .form-group {
+  flex: 1;
+}
+
+label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: #444;
+  margin-bottom: 6px;
+}
+
+.required {
+  color: #e63946;
+}
+
+/* --- INPUTS & TEXTAREA --- */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea {
+  width: 100%;
+  padding: 12px 14px;
+  font-size: 14px;
+  font-family: inherit;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.85);
+  transition: all 0.25s ease;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: #0056b3;
+  box-shadow: 0 0 0 3px rgba(0, 86, 179, 0.15);
+  background-color: #ffffff;
+}
+
+textarea {
+  resize: vertical;
+}
+
+/* --- BOUTON D'ENVOI --- */
+.btn-submit {
+  width: 100%;
+  padding: 14px;
+  background-color: #0056b3;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  box-shadow: 0 4px 12px rgba(0, 86, 179, 0.25);
+}
+
+.btn-submit:hover {
+  background-color: #004085;
+}
+
+.btn-submit:active {
+  transform: scale(0.99);
+}
+
+/* --- BOÎTE DE CONFIRMATION --- */
+.confirmation-box {
+  display: none;
+  align-items: center;
+  gap: 12px;
+  margin-top: 20px;
+  padding: 14px 18px;
+  background-color: #eef9f1;
+  border: 1px solid #c3e6cb;
+  border-radius: 8px;
+  color: #155724;
+  font-size: 14px;
+}
+
+.confirmation-box .icon {
+  font-size: 20px;
+}
+
+/* --- ADAPTATION MOBILE --- */
+@media (max-width: 480px) {
+  .form-row {
+    flex-direction: column;
+    gap: 0;
+  }
+}
+/* --- CONFIGURATION DU FOND AVEC LE LOGO --- */
+body.page-devis {
+  margin: 0;
+  padding: 20px;
+  min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* Image du logo Novaclim */
+  background-image: url('logo.jpeg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 650px auto; /* Ajuste la taille du logo au centre */
+  background-attachment: fixed;
+
+  /* Effet de voile blanc transparent pour estomper le logo */
+  background-color: rgba(240, 244, 248, 0.88);
+  background-blend-mode: overlay;
+}
+
+/* --- CARTE DU FORMULAIRE SEMI-TRANSPARENTE --- */
+.devis-container {
+  width: 100%;
+  max-width: 480px;
+  padding: 35px;
+  border-radius: 16px;
+  
+  /* Fond blanc très légèrement translucide avec flou */
+  background-color: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(8px);
+  
+  box-shadow: 0 10px 30px rgba(0, 86, 179, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+.devis-container h2 {
+  color: #0b3c5d;
+  margin-top: 0;
+  margin-bottom: 25px;
+  font-size: 24px;
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 18px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #1d2731;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 14px;
+  box-sizing: border-box;
+  background-color: rgba(255, 255, 255, 0.9);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #0056b3;
+  box-shadow: 0 0 0 3px rgba(0, 86, 179, 0.2);
+}
+
+/* --- BOUTON BLEU CONTINENT --- */
+.btn-submit {
+  width: 100%;
+  padding: 14px;
+  background-color: #0056b3;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.btn-submit:hover {
+  background-color: #003d80;
+}
+
+/* --- MESSAGE DE CONFIRMATION --- */
+.confirmation-message {
+  display: none;
+  margin-top: 20px;
+  padding: 12px;
+  background-color: #d1e7dd;
+  color: #0f5132;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: 600;
+}
+/* --- SECTION AVANTAGES --- */
+#avantages {
+  padding: 50px 20px;
+  text-align: center;
+}
+
+#avantages h2 {
+  color: #0b3c5d;
+  font-size: 28px;
+  margin-bottom: 30px;
+}
+
+/* Grille responsive pour aligner les cartes */
+.advantages {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Style des cartes (lisibles et visibles) */
+.advantages .card {
+  background-color: #ffffff;
+  color: #1d2731; /* Couleur de texte sombre bien visible */
+  padding: 25px 20px;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e2e8f0;
+  border-left: 5px solid #0056b3; /* Accent bleu Novaclim */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+/* Effet au survol */
+.advantages .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 86, 179, 0.15);
+}
+/* Forcer la couleur du texte des cartes en sombre */
+.advantages .card,
+#avantages .card {
+  color: #1a202c !important; /* Couleur sombre (presque noir) */
+  background-color: #ffffff !important; /* Fond blanc */
+  font-weight: bold !important;
+}
+/* État normal (par défaut) : texte bleu foncé sur fond blanc */
+.advantages .card {
+  background-color: #ffffff !important;
+  color: #0056b3 !important; /* Texte bleu bien visible */
+  border: 1px solid #e2e8f0;
+}
+
+/* État au survol du curseur (:hover) */
+.advantages .card:hover {
+  background-color: #0056b3 !important; /* Le fond devient bleu */
+  color: #ffffff !important;            /* Le texte devient blanc */
+}
+/* Bouton Appeler directement en forme de rectangle coloré */
+a.btn-call,
+.btn-call {
+  display: inline-block !important;
+  background-color: #ff9800 !important; /* Couleur orange/jaune vive pour ressortir */
+  color: #ffffff !important;           /* Texte blanc */
+  padding: 12px 24px !important;
+  border-radius: 8px !important;       /* Coins arrondis identiques aux autres */
+  font-weight: bold !important;
+  text-decoration: none !important;    /* Enlève le soulignement bleu */
+  text-align: center !important;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  transition: background-color 0.3s ease;
+}
+
+/* Effet au survol du curseur */
+a.btn-call:hover,
+.btn-call:hover {
+  background-color: #e68a00 !important;
 }
 
 }

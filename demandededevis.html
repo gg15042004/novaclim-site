@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demande de Devis - Novaclim Solutions</title>
+    <style>
+        /* Global & Reset */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #eef5fc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        /* Carte du Formulaire Centrée */
+        .form-card {
+            width: 100%;
+            max-width: 520px;
+            padding: 35px 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+            position: relative;
+            overflow: hidden;
+
+            /* Logo Novaclim en filigrane centré avec voile blanc semi-transparent */
+            background-image: linear-gradient(rgba(255, 255, 255, 0.90), rgba(255, 255, 255, 0.90)), url('logo.png');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 260px auto;
+            background-color: #ffffff;
+        }
+
+        /* Titre du Formulaire */
+        .form-card h2 {
+            text-align: center;
+            color: #0078d7;
+            font-size: 26px;
+            margin-bottom: 8px;
+            position: relative;
+        }
+
+        .form-card h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background-color: #0078d7;
+            margin: 8px auto 20px auto;
+            border-radius: 2px;
+        }
+
+        .form-subtitle {
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 25px;
+        }
+
+        /* Groupes de Champs Verticaux Propres */
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 18px;
+        }
+
+        .form-group label {
+            font-size: 14px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 6px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 14px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 15px;
+            background-color: rgba(255, 255, 255, 0.9);
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #0078d7;
+            box-shadow: 0 0 0 3px rgba(0, 120, 215, 0.2);
+        }
+
+        .form-group textarea {
+            height: 110px;
+            resize: vertical;
+        }
+
+        /* Bouton d'Envoi */
+        .btn-submit {
+            width: 100%;
+            padding: 14px;
+            background-color: #0078d7;
+            color: #ffffff;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.1s;
+            box-shadow: 0 4px 10px rgba(0, 120, 215, 0.3);
+            margin-top: 10px;
+        }
+
+        .btn-submit:hover {
+            background-color: #005bb5;
+        }
+
+        .btn-submit:active {
+            transform: scale(0.99);
+        }
+
+        /* Message de Confirmation (Masqué par défaut) */
+        .hidden {
+            display: none !important;
+        }
+
+        #status-message {
+            margin-top: 20px;
+            padding: 14px;
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 15px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="form-card">
+        <h2>Demande de Devis</h2>
+        <p class="form-subtitle">Remplissez ce formulaire pour recevoir une estimation gratuite.</p>
+        
+        <!-- Remplacez VOTRE_ID_FORMSPREE par votre identifiant de formulaire Formspree -->
+        <form id="devis-form" action="https://formspree.io/f/mqeroyze" method="POST">
+            
+            <div class="form-group">
+                <label for="nom">Nom complet</label>
+                <input type="text" id="nom" name="nom" placeholder="Votre nom" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="votre@email.com" required>
+            </div>
+
+            <div class="form-group">
+                <label for="telephone">Téléphone</label>
+                <input type="tel" id="telephone" name="telephone" placeholder="Ex: 6XX XX XX XX" required>
+            </div>
+
+            <div class="form-group">
+                <label for="details">Détails de votre demande</label>
+                <textarea id="details" name="message" placeholder="Précisez votre besoin (installation, dépannage, entretien...)" required></textarea>
+            </div>
+
+            <button type="submit" id="submit-btn" class="btn-submit">Envoyer la demande</button>
+        </form>
+
+        <!-- Message de confirmation masqué par défaut -->
+        <div id="status-message" class="hidden">
+            ✅ Merci ! Votre demande a bien été envoyée.
+        </div>
+    </div>
+
+    <script>
+        const form = document.getElementById("devis-form");
+        const statusMessage = document.getElementById("status-message");
+        const submitBtn = document.getElementById("submit-btn");
+
+        form.addEventListener("submit", async function (event) {
+            event.preventDefault(); // Empêche la redirection / rechargement
+            
+            // Indication visuelle du chargement
+            submitBtn.textContent = "Envoi en cours...";
+            submitBtn.disabled = true;
+
+            const data = new FormData(event.target);
+            
+            try {
+                const response = await fetch(event.target.action, {
+                    method: form.method,
+                    body: data,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+                
+                if (response.ok) {
+                    form.reset(); // Vide le formulaire
+                    statusMessage.classList.remove("hidden"); // Affiche le message de succès
+                    submitBtn.textContent = "Envoyer la demande";
+                    submitBtn.disabled = false;
+                } else {
+                    alert("Une erreur s'est produite lors de l'envoi. Veuillez réessayer.");
+                    submitBtn.textContent = "Envoyer la demande";
+                    submitBtn.disabled = false;
+                }
+            } catch (error) {
+                alert("Problème de connexion. Veuillez vérifier votre réseau.");
+                submitBtn.textContent = "Envoyer la demande";
+                submitBtn.disabled = false;
+            }
+        });
+    </script>
+
+</body>
+</html>
